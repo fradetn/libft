@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 18:37:55 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/03 18:37:56 by nfradet          ###   ########.fr       */
+/*   Created: 2023/10/03 18:29:31 by nfradet           #+#    #+#             */
+/*   Updated: 2023/10/03 18:29:33 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+long unsigned int	ft_strlen(const char *s)
 {
-	if ((c > 64 && c < 91) || (c > 96 && c < 123))
+	long unsigned int	count;
+
+	count = 0;
+	while (s[count])
 	{
-		return (1024);
+		count++;
 	}
-	return (0);
+	return (count);
 }
 
 /*
 #include <stdio.h>
-#include <ctype.h>
+#include <string.h>
 
 int main (int argc, char **argv)
 {
-    (void) argc;
-    printf("%d\n", ft_isalpha(argv[1][0]));
-    printf("%d\n", isalpha(argv[1][0]));
+    (void) argc; 
+    if (ft_strlen(argv[1]) != strlen(argv[1]))
+    {
+        printf("test failed\n");
+        printf("ft_strlen : %ld\n", ft_strlen(argv[1]));
+        printf("strlen : %ld\n", strlen(argv[1]));
+    }
+    else
+    {
+        printf("Everything's fine\n");
+    }
 }*/
