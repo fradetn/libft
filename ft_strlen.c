@@ -6,15 +6,15 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:29:31 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/04 12:48:14 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/04 15:01:29 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-ft_size_t	ft_strlen(const char *s)
+t_size	ft_strlen(const char *s)
 {
-	ft_size_t	count;
+	t_size	count;
 
 	count = 0;
 	while (s[count])

@@ -6,12 +6,14 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:14:09 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/04 12:55:56 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/04 19:19:29 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 #define LIBFT_H
+
+#include <stdlib.h>
 
 typedef long unsigned int	t_size;
 

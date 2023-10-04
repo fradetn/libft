@@ -6,37 +6,56 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:39:59 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/04 12:54:24 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/04 19:20:54 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_size	ft_strlcpy(char *dest, const char *src, t_size size)
+static size_t	ft_strlen2(const char *s)
 {
-	t_size	i;
+	size_t	count;
 
+	count = 0;
+	while (s[count])
+	{
+		count++;
+	}
+	return (count);
+}
+
+size_t	ft_strlcpy(char *dest, const char *src, t_size size)
+{
+	size_t	i;
+
+	if (size <= 0)
+	{
+		return (ft_strlen2(src));
+	}
 	i = 0;
-	while (i < size && src[i])
+	while (i < size - 1 && src[i])
 	{
 		dest[i] = src[i];
 		i++;
 	}
 	dest[i] = '\0';
-	return (i);
+	return (ft_strlen2(src));
 }
 
 /*
 #include <stdio.h>
-#include <string.h>
-int main(int  argc, char **argv)
+#include <bsd/string.h>
+int main(void)
 {
-    (void) argc;
+    char dest1[15] = "";
+    char dest2[15] = "";
+    memset(dest1, 0, 15);
+    memset(dest1, 'r', 6);
+    memset(dest2, 0, 15);
+    memset(dest2, 'r', 6);
 
-    printf("dest : %s\n", argv[1]);
-    printf("src : %s\n", argv[2]);
-    printf("ft_strlcpy : %ld\n", ft_strlcpy(argv[1], argv[2], 5));
-    //printf("strlcpy : %d\n", strlcpy(&argv[1], argv[2], 5));
-    printf("dest : %s\n", argv[1]);
-    printf("src : %s\n", argv[2]);
+    printf("ft_strlcpy : %ld\n", ft_strlcpy(dest1, "lorem ipsum", 3));
+    printf("ft_strlcpy : %s\n", dest1);
+    printf("strlcpy : %ld\n", strlcpy(dest2, "lorem ipsum", 3));
+    printf("strlcpy : %s\n", dest2);
 }*/

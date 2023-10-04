@@ -6,11 +6,13 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:35:02 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/04 12:54:25 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/04 15:13:34 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *s, int c, unsigned long int n)
+#include "libft.h"
+
+void	*ft_memset(void *s, int c, t_size n)
 {
 	unsigned char	val;
 	void			*ptr;
