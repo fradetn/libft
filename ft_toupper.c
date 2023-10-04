@@ -1,31 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 18:35:38 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/04 12:54:27 by nfradet          ###   ########.fr       */
+/*   Created: 2023/10/04 12:54:38 by nfradet           #+#    #+#             */
+/*   Updated: 2023/10/04 12:54:40 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+int	ft_toupper(int c)
 {
-	if ((c > 47 && c < 58))
-	{
-		return (2048);
-	}
-	return (0);
+	if (c > 96 && c < 123)
+		return (c - 32);
+	else
+		return (c);
 }
 
-/*
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
-int main (int argc, char **argv)
+int	main(void)
 {
-    (void) argc;
-    printf("%d\n", ft_isdigit(argv[1][0]));
-    printf("%d\n", isdigit(argv[1][0]));
-}*/
+	int	i;
+
+	i = -127;
+	while (i < 255)
+	{
+		if (ft_toupper(i) != toupper(i))
+		{
+			printf("erreur pour i = %d", i);
+			printf("ft_toupper = %d", ft_toupper(i));
+			printf("toupper = %d", toupper(i));
+			i = 300;
+		}
+		i++;
+	}
+	if (i < 300)
+	{
+		printf("tout est bon !");
+	}
+}

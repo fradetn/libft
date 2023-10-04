@@ -6,11 +6,13 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:32:03 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/03 18:32:04 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/04 12:54:26 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *src, unsigned long int n)
+#include "libft.h"
+
+void	*ft_memcpy(void *dest, const void *src, t_size n)
 {
 	unsigned char	*ptr;
 

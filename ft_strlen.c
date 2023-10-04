@@ -6,13 +6,15 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:29:31 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/03 18:29:33 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/04 12:48:14 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long unsigned int	ft_strlen(const char *s)
+#include "libft.h"
+
+ft_size_t	ft_strlen(const char *s)
 {
-	long unsigned int	count;
+	ft_size_t	count;
 
 	count = 0;
 	while (s[count])

@@ -6,14 +6,15 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:39:59 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/03 18:56:35 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/04 12:54:24 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned long int	ft_strlcpy(char *dest, const char *src,
-unsigned long int size)
+#include "libft.h"
+
+t_size	ft_strlcpy(char *dest, const char *src, t_size size)
 {
-	unsigned long int	i;
+	t_size	i;
 
 	i = 0;
 	while (i < size && src[i])
@@ -25,6 +26,7 @@ unsigned long int size)
 	return (i);
 }
 
+/*
 #include <stdio.h>
 #include <string.h>
 int main(int  argc, char **argv)
@@ -37,4 +39,4 @@ int main(int  argc, char **argv)
     //printf("strlcpy : %d\n", strlcpy(&argv[1], argv[2], 5));
     printf("dest : %s\n", argv[1]);
     printf("src : %s\n", argv[2]);
-}
+}*/
