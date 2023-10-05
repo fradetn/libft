@@ -6,7 +6,7 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:39:59 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/04 19:20:54 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/05 11:49:09 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static size_t	ft_strlen2(const char *s)
 	return (count);
 }
 
-size_t	ft_strlcpy(char *dest, const char *src, t_size size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 

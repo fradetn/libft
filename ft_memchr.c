@@ -1,56 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 12:08:33 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/05 14:39:10 by nfradet          ###   ########.fr       */
+/*   Created: 2023/10/05 12:08:12 by nfradet           #+#    #+#             */
+/*   Updated: 2023/10/05 12:37:34 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	while (*s != '\0' && *s != c)
+	unsigned char	*ptr;
+
+	ptr = (unsigned char *) s;
+	while (*ptr && n--)
 	{
-		s++;
+		if (*ptr == (unsigned char) c)
+			return (ptr);
+		ptr++;
 	}
-	if (*s == c)
-		return ((char *) s);
 	return (NULL);
 }
 
 /*
-#include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
 #include <string.h>
-
-void	ft_print_result(char const *s)
+int	main(int argc, char **argv)
 {
-	int		len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	write(1, s, len);
-}
-
-int		main()
-{
-	char		*str;
-	char		str2[] = "bonjour";
-			//printf("%s", str2);
-
-		if (!(str = strchr(str2, 's')))
-		{
-			printf("%s", str);
-			ft_print_result("NULL");
-		}
-		else
-			ft_print_result(str);
-	return (0);
+	(void) argc;
+	printf("ft_strchr : %s\n", (char *)ft_memchr(argv[1], 99, 5));
+	printf("ft_strchr : %s\n", (char *)memchr(argv[1], 99, 5));
 }*/

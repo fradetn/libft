@@ -6,13 +6,13 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:31:15 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/04 15:38:31 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/05 11:49:02 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	*ft_memset2(void *s, int c, t_size n)
+static void	*ft_memset2(void *s, int c, size_t n)
 {
 	unsigned char	val;
 	void			*ptr;
@@ -26,7 +26,7 @@ static void	*ft_memset2(void *s, int c, t_size n)
 	return (s);
 }
 
-void	ft_bzero(void *s, t_size n)
+void	ft_bzero(void *s, size_t n)
 {
 	ft_memset2(s, 0, n);
 }

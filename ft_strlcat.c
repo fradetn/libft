@@ -6,15 +6,15 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:34:29 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/04 19:06:31 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/05 11:49:11 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_size	ft_strlen2(const char *s)
+static size_t	ft_strlen2(const char *s)
 {
-	t_size	count;
+	size_t	count;
 
 	count = 0;
 	while (s[count])
@@ -24,11 +24,11 @@ static t_size	ft_strlen2(const char *s)
 	return (count);
 }
 
-t_size	ft_strlcat(char *dest, const char *src, t_size size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	t_size	i;
-	t_size	dst_len;
-	t_size	src_len;
+	size_t	i;
+	size_t	dst_len;
+	size_t	src_len;
 
 	dst_len = ft_strlen2(dest);
 	src_len = ft_strlen2(src);

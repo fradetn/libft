@@ -6,9 +6,11 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:33:57 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/04 12:54:26 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/05 15:19:54 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 long unsigned int	ft_strlen(const char *s)
 {
@@ -20,7 +22,7 @@ long unsigned int	ft_strlen(const char *s)
 	return (count);
 }
 
-void	*ft_memmove(void *dest, const void *src, unsigned long int n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*ptr;
 

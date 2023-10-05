@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 18:35:02 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/05 11:49:14 by nfradet          ###   ########.fr       */
+/*   Created: 2023/10/05 12:08:10 by nfradet           #+#    #+#             */
+/*   Updated: 2023/10/05 12:26:19 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	val;
-	void			*ptr;
+	unsigned char	*p1;
+	unsigned char	*p2;
 
-	val = (unsigned char) c;
-	ptr = s;
-	while (n-- > 0)
+	p1 = (unsigned char *) s1;
+	p2 = (unsigned char *) s2;
+	while ((p1 || p2) && n--)
 	{
-		*((unsigned char *) ptr++) = val;
+		if (*p1 != *p2)
+			return (*p1 - *p2);
+		p1++;
+		p2++;
 	}
-	return (s);
+	return (0);
 }
 
 /*
 #include <stdio.h>
 #include <string.h>
-int main(int argc, char **argv)
-{
-    (void) argc;
-    printf("%s\n", argv[1]);
-    void *ptr = ft_memset((void *)&argv[1][0], 120, 1);
-    void *ptrreal = memset('\0', 120, 1);
-    printf("ft_memset : %s\n", (char *)ptr);
-    printf("   memset : %s\n", (char *)ptrreal);
 
+int main(int ac, char **av)
+{
+	(void) ac;
+	printf("expected : %i, output : %i", 
+	memcmp(av[1], av[2], 5), ft_memcmp(av[1], av[2], 5));
 }*/
