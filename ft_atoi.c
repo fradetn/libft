@@ -45,7 +45,9 @@ int	ft_atoi(const char *str)
 #include <stdlib.h>
 int main (int arc, char **argv)
 {
+	const char str[20] = "-2147483648";
 	(void) arc;
-	printf("ft_atoi : %d\n", ft_atoi(argv[1]));
-	printf("atoi    : %d\n", atoi(argv[1]));
+	(void) argv;
+	printf("ft_atoi : %d\n", ft_atoi(str));
+	printf("atoi    : %d\n", atoi(str));
 }*/
