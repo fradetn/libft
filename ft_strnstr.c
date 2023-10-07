@@ -1,40 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 12:08:23 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/06 23:35:27 by nfradet          ###   ########.fr       */
+/*   Created: 2023/10/07 04:37:19 by nfradet           #+#    #+#             */
+/*   Updated: 2023/10/07 04:56:44 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *big, const char *lit, size_t n)
 {
 	size_t	i;
+	size_t	j;
+	size_t	k;
 
+	if (*lit == '\0')
+		return ((char *)big);
 	i = 0;
-	while ((s1[i] || s2[i]) && i < n)
+	while (big[i] && n--)
 	{
-		if (s1[i] != s2[i])
+		k = i;
+		j = 0;
+		while (big[k++] == lit[j++] && n--)
 		{
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+			if (lit[j] == '\0')
+				return ((char *)&big[i]);
 		}
+		j = 0;
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 
 /*
 #include <stdio.h>
-#include <string.h>
+#include <bsd/string.h>
 
 int main()
 {
-printf("expected : %i, output : %i", 
-strncmp("test\200", "test\0", 6), 
-ft_strncmp("test\200", "test\0", 6));
+	printf("expected : %s\noutput : %s", 
+	strnstr("lorem ipsum dolor sit amet", "dolor", 15), 
+	ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15));
 }*/

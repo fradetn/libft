@@ -6,51 +6,76 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:34:29 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/05 18:58:11 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/07 06:38:14 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+size_t	ft_strlen2(const char *s)
+{
+	size_t	count;
+
+	count = 0;
+	while (s[count])
+	{
+		count++;
+	}
+	return (count);
+}
+
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	i;
+	size_t	j;
 	size_t	dst_len;
-	size_t	src_len;
 
-	dst_len = ft_strlen(dest);
-	src_len = ft_strlen(src);
-	i = 0;
-	while (i < src_len && (dst_len + i) < size - 1)
+	dst_len = ft_strlen2(dest);
+	i = dst_len;
+	j = 0;
+	while (src[j] && i < size - 1)
 	{
-		dest[dst_len + i] = src[i];
-		i++;
+		dest[i++] = src[j++];
 	}
-	dest[dst_len + i] = '\0';
-	if (dst_len + 1 >= size)
-		return (src_len + size);
-	return (dst_len + src_len);
 }
 
-
-#include <stdio.h>
-#include <bsd/string.h>
-
-int main() {
-	char dest1[16] = "";
-	char dest2[16] = "";
-	memset(dest1, 0, 16);
-	memset(dest2, 0, 16);
-	memset(dest1, 'r', 15);
-	memset(dest2, 'r', 15);
-
-	printf("len str2 : %ld\n", ft_strlen2(dest1));
-	printf("La longueur de la chaîne dest1 est de %zu\n", 
-	strlcat(dest1, "lorem ipsum dolor sit amet", 5));
-	printf("La longueur de la chaîne dest2 est de %zu\n", 
-	ft_strlcat(dest2, "lorem ipsum dolor sit amet", 5));
-	printf("strlcat    : %s\n", dest1);
-	printf("ft_strlcat : %s\n", dest2);
-
-	return 0;
+/*
+int main(int argc, char **argv)
+{
+ 
+if (argc == 2)
+{
+printf("ENTREE  \n");
+size_t taille = (size_t)(ft_atoi(argv[1]));
+char s1[] = "123456789";
+char s2[] = "abcde";
+ 
+printf("Chaine S1 :");
+printf("%s", s1);
+printf('\n');
+printf("Chaine S2 :");
+printf("%s", s2);
+printf('\n');
+printf("Taille de S1 :");
+printf("%ld", strlen(s1));
+printf('\n');
+printf("Taille de S2 :");
+printf("%ld", strlen(s2));
+printf('\n');
+printf("Taille de SIZE :");
+printf("%ld", taille);
+printf('\n');
+printf("STRLCAT renvoie :");
+ 
+printf(strlcat(s1, s2, taille));
+ 
+printf('\n');
+printf("Chaine S1 apres STRLCAT:");
+printf(s1);
+printf('\n');
+printf("Taille de S1 apres STRLCAT :");
+printf("%ld", strlen(s1));
+printf('\n');
 }
+return 0;
+}*/

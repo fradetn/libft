@@ -1,40 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 12:08:23 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/06 23:35:27 by nfradet          ###   ########.fr       */
+/*   Created: 2023/10/07 05:13:09 by nfradet           #+#    #+#             */
+/*   Updated: 2023/10/07 05:36:08 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+size_t	ft_strlen2(const char *s)
 {
-	size_t	i;
+	size_t	count;
 
-	i = 0;
-	while ((s1[i] || s2[i]) && i < n)
+	count = 0;
+	while (s[count])
 	{
-		if (s1[i] != s2[i])
-		{
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		}
+		count++;
+	}
+	return (count);
+}
+
+char	*ft_strdup(const char *s)
+{
+	char		*ptr;
+	size_t		i;
+
+	ptr = malloc(sizeof(char) * (ft_strlen2(s) + 1));
+	if (ptr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < ft_strlen2(s))
+	{
+		ptr[i] = s[i];
 		i++;
 	}
-	return (0);
+	ptr[i] = '\0';
+	return (ptr);
 }
 
 /*
-#include <stdio.h>
 #include <string.h>
-
-int main()
+int main(void)
 {
-printf("expected : %i, output : %i", 
-strncmp("test\200", "test\0", 6), 
-ft_strncmp("test\200", "test\0", 6));
+	char str[6] = "salut\0";
+	printf("%ld", ft_strlen2(str));
+	char *cpy = ft_strdup(str);
+	printf("%s\n", cpy);
+	free(cpy);
 }*/

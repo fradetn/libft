@@ -6,66 +6,71 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:33:57 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/05 15:19:54 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/07 03:55:51 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long unsigned int	ft_strlen(const char *s)
+size_t	ft_strlen2(const char *s)
 {
-	long unsigned int	count;
+	size_t	count;
 
 	count = 0;
 	while (s[count])
+	{
 		count++;
+	}
 	return (count);
 }
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memcpy2(void *dest, const void *src, size_t n)
 {
 	unsigned char	*ptr;
 
 	ptr = dest;
-	if (dest < src)
+	while (n-- > 0)
 	{
-		while (*((unsigned char *)src) && n-- > 0)
-		{
-			*ptr++ = *(unsigned char *)src++;
-		}
-	}
-	else
-	{
-		if (ft_strlen((char *)dest) > n)
-		{
-			src += n;
-			ptr += n;
-		}
-		else
-		{
-			src += ft_strlen((char *)dest);
-			ptr += ft_strlen((char *)dest);
-		}
-		while (*((unsigned char *)src) && n-- > 0)
-		{
-			*ptr-- = *(unsigned char *)src--;
-		}
+		*ptr++ = *(unsigned char *)src++;
 	}
 	return (dest);
 }
 
-/*
-#include <stdio.h>
-#include <string.h>
-int main(int  argc, char **argv)
+//#include <stdio.h>
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-    (void) argc;
+	unsigned char	*d;
+	unsigned char	*s;
 
-    printf("dest : %s\n", &argv[1][3]);
-    printf("src : %s\n", argv[1]);
-    printf("memmove : %s\n", (char *)memmove(&argv[1][3], argv[1], 5));
-    printf("ft_memmove : %s\n", (char *)ft_memmove(&argv[2][3], argv[2], 5));
-    printf("dest : %s\n", &argv[1][3]);
-    printf("src : %s\n", argv[1]);
-    printf("src : %s\n", argv[2]);
+	d = (unsigned char *) dest;
+	s = (unsigned char *) src;
+	if (dest == src)
+		return (dest);
+	if (s < d)
+	{
+		while (n--)
+			*(d + n) = *(s + n);
+		return (dest);
+	}
+	ft_memcpy2(dest, src, n);
+	return (dest);
+}
+
+/*
+#include <unistd.h>
+#include <string.h>
+int	main()
+{
+	char	src[] = "lorem ipsum dolor sit amet";
+	char	*dest;
+
+	dest = src + 1;
+	printf("src : %s\n", src);
+
+		if (src != memmove(dest, src, 8))
+			write(1, "dest's adress was not returned\n", 31);
+	printf("dest : %s\n", dest);
+
+
+	return (0);
 }*/

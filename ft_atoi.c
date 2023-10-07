@@ -1,6 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/06 23:37:29 by nfradet           #+#    #+#             */
+/*   Updated: 2023/10/07 03:56:20 by nfradet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_isspace(char c)
+static int	ft_isnum(int c)
+{
+	if ((c > 47 && c < 58))
+	{
+		return (2048);
+	}
+	return (0);
+}
+
+static int	ft_isspace(char c)
 {
 	if (c == '\t' || c == '\n' || c == '\v')
 		return (1);
@@ -32,7 +53,7 @@ int	ft_atoi(const char *str)
 			sign = -1;
 		str++;
 	}
-	while (ft_isdigit(*str) != 0)
+	while (ft_isnum(*str) != 0)
 	{
 		res = res * 10 + (*str - '0');
 		str++;
@@ -41,13 +62,55 @@ int	ft_atoi(const char *str)
 }
 
 /*
+#include <limits.h>
 #include <stdio.h>
-#include <stdlib.h>
-int main (int arc, char **argv)
+
+int single_test(char *str)
 {
-	const char str[20] = "-2147483648";
-	(void) arc;
-	(void) argv;
-	printf("ft_atoi : %d\n", ft_atoi(str));
-	printf("atoi    : %d\n", atoi(str));
+	if (atoi(str) != ft_atoi(str))
+	{
+		printf("test incorrect\nExpected : 
+		%d\nOutput : %d\n\n",atoi(str),ft_atoi(str));
+		return (1);
+	}
+	return (0);
+}
+
+int test_atoi(void)
+{
+	char buffer[200];
+	int res = 1;
+
+	single_test(" \t\v\n\r\f123");
+	single_test("0");
+	single_test("-1000043");
+	single_test(
+		"+0000000000000000000000000000000000000000000000000000123");
+	single_test("    123");
+	single_test("--123");
+	single_test("-+123");
+	single_test("+-123");
+	single_test("++123");
+	single_test("- 123");
+	single_test("+ 123");
+	single_test("+\n123");
+	single_test("1209");
+	single_test("12/3");
+	single_test("12;3");
+	sprintf(buffer, "%i", INT_MAX);
+	single_test(buffer);
+	sprintf(buffer, "%i", INT_MIN);
+	single_test(buffer);
+
+	for (int i = 0; i <= 0xFF; i++) {
+		sprintf(buffer, "%c %i", i, i + 1);
+	single_test(buffer);
+	}
+
+	return res;
+}
+
+int	main()
+{
+	test_atoi();
 }*/
