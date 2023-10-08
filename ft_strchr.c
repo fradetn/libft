@@ -6,7 +6,7 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 12:08:33 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/05 14:39:10 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/07 21:05:07 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0' && *s != c)
+	unsigned char	uc;
+
+	uc = (unsigned char)c;
+	while (*s != '\0' && *s != uc)
 	{
 		s++;
 	}
-	if (*s == c)
+	if (*s == uc)
 		return ((char *) s);
 	return (NULL);
 }

@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/07 05:13:09 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/07 19:35:53 by nfradet          ###   ########.fr       */
+/*   Created: 2023/10/08 15:48:40 by nfradet           #+#    #+#             */
+/*   Updated: 2023/10/08 20:19:09 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char		*ptr;
-	size_t		i;
+	char	*str;
+	int		i;
 
-	ptr = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (ptr == NULL)
-		return (NULL);
 	i = 0;
-	while (i < ft_strlen(s))
-	{
-		ptr[i] = s[i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (str == NULL)
+		return (NULL);
+	while (*s1)
+		str[i++] = *s1++;
+	while (*s2)
+		str[i++] = *s2++;
+	str[i] = '\0';
+	return (str);
 }
 
 /*
-#include <string.h>
-int main(void)
+int	main()
 {
-	char str[6] = "salut\0";
-	printf("%ld", ft_strlen2(str));
-	char *cpy = ft_strdup(str);
-	printf("%s\n", cpy);
-	free(cpy);
+	char *str;
+
+	str = ft_strjoin("salut", "");
+	printf("%s\n", str);
 }*/
