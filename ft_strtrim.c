@@ -6,7 +6,7 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 17:11:17 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/08 19:28:31 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/09 13:27:49 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (*s1 && ft_isin(set, *s1))
 		s1++;
 	len = ft_strlen(s1);
-	while (ft_isin(set, *(s1 + len - 1)))
+	while (ft_isin(set, *(s1 + len - 1)) && len > 0)
 		len--;
 	str = malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
@@ -44,7 +44,7 @@ int	main()
 {
 	char *str;
 
-	str = ft_strtrim("", "");
+	str = ft_strtrim("   xxx   xxx", " x");
 	printf("%s\n", str);
 	free(str);
 }*/

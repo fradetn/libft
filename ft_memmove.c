@@ -6,13 +6,12 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 18:33:57 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/07 19:35:58 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/09 18:24:04 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//#include <stdio.h>
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*d;

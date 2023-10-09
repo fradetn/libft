@@ -6,7 +6,7 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 18:00:29 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/08 20:19:01 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/09 14:15:59 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	ft_wordcount(const char *str, char sep)
 	int	count;
 	int	i;
 
-	if (*str == sep)
+	if (*str == sep || *str == '\0')
 		count = 0;
 	else
 		count = 1;
@@ -52,27 +52,24 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	tab = malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
-	printf("%d\n", ft_wordcount(s, c));
 	if (tab == NULL)
 		return (NULL);
 	while (*s)
 	{
-		if (*s != c)
+		if (*s != '\0' && *s != c)
 		{
-			//printf("%ld\n", ft_strlensep(s, c));
 			tab[i] = malloc(sizeof(char) * (ft_strlensep(s, c) + 1));
 			if (tab[i] == NULL)
 				return (NULL);
 			j = 0;
 			while (*s && *s != c)
 				tab[i][j++] = *s++;
-			tab[i][j] = '\0';
+			tab[i++][j] = '\0';
 		}
-		//printf("%s\n", tab[i]);
-		i++;
-		s++;
+		if (*s != '\0')
+			s++;
 	}
-	tab[i] = 0;
+	tab[i] = NULL;
 	return (tab);
 }
 
@@ -92,8 +89,8 @@ int	main()
 {
 	char **tab;
 
-	tab = ft_split("  tripouille 42  ", ' ');
-	//printf("%d",ft_wordcount("  tripouille 42  ", ' '));
+	tab = ft_split("", ' ');
+	printf("%d",ft_wordcount("", ' '));
 	while (*tab != 0)
 	{
 		printf("%s\n", *tab);
