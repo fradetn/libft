@@ -6,7 +6,7 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 18:00:29 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/10 18:52:41 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/10 19:42:41 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,17 @@ static int	ft_wordcount(const char *str, char sep)
 	return (count);
 }
 
+static char	**ft_free(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
@@ -60,7 +71,7 @@ char	**ft_split(char const *s, char c)
 		{
 			tab[i] = malloc(sizeof(char) * (ft_strlensep(s, c) + 1));
 			if (tab[i] == NULL)
-				return (NULL);
+				return (ft_free(tab));
 			j = 0;
 			while (*s && *s != c)
 				tab[i][j++] = *s++;
