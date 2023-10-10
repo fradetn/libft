@@ -6,7 +6,7 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 05:42:30 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/08 16:05:10 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/10 18:43:33 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	*ft_calloc(size_t elementCount, size_t elementSize)
 {
 	void	*ptr;
 
-	if ((elementCount * elementSize) / elementSize != elementCount)
-		return (NULL);
+	if (elementCount == 0 || elementSize == 0)
+		return (malloc(0));
 	ptr = (void *)malloc(elementCount * elementSize);
 	if (!ptr)
 		return (NULL);
-	bzero (ptr, elementCount * elementSize);
+	ft_bzero(ptr, elementCount * elementSize);
 	return (ptr);
 }
 

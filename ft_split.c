@@ -6,7 +6,7 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 18:00:29 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/09 14:15:59 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/10 18:52:41 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ int	main()
 {
 	char **tab;
 
-	tab = ft_split("", ' ');
-	printf("%d",ft_wordcount("", ' '));
+	tab = ft_split("", 'Z');
+	//printf("%d",ft_wordcount("", ' '));
 	while (*tab != 0)
 	{
 		printf("%s\n", *tab);

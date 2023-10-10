@@ -6,7 +6,7 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:10:12 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/09 16:12:53 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/10 18:44:46 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,4 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		(*f)(i, &s[i]);
 		i++;
 	}
-	return (s);
 }

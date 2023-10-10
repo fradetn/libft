@@ -6,7 +6,7 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 15:13:11 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/09 15:28:17 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/10/10 18:53:02 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static int	ft_intlen(unsigned int n)
 	return (count);
 }
 
+//#include <stdio.h>
 char	*ft_itoa(int n)
 {
 	int		sign;
@@ -40,6 +41,7 @@ char	*ft_itoa(int n)
 		sign = 1;
 	}
 	len = ft_intlen((unsigned int)n) + 1 + sign;
+	//printf("%d\n", len);
 	str = malloc(sizeof(char) * (len));
 	if (str == NULL)
 		return (NULL);
@@ -59,6 +61,7 @@ char	*ft_itoa(int n)
 /*
 int	main()
 {
-	char  *str = ft_itoa(2147483647);
+	char  *str = ft_itoa(1000034);
 	printf("%s\n", str);
+	free(str);
 }*/
