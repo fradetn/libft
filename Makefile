@@ -6,7 +6,7 @@
 #    By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/04 12:54:44 by nfradet           #+#    #+#              #
-#    Updated: 2023/10/10 16:19:04 by nfradet          ###   ########.fr        #
+#    Updated: 2023/10/11 13:17:41 by nfradet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ bonus: $(OBJS) $(OBJS_BONUS)
 	ar -rcs $(NAME) $(OBJS) $(OBJS_BONUS)
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
 	rm -f $(NAME)
