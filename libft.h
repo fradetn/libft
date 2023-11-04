@@ -6,15 +6,20 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:14:09 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/10 16:28:44 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/11/04 22:56:13 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000000
+# endif
+
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 /*Part 1 - Libc functions*/
 int			ft_isalnum(int c);
@@ -53,6 +58,23 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
+
+/*printf functions*/
+int		ft_printf(const char *format, ...);
+int		ft_putunbr(unsigned int n);
+int		ft_putnbr_base(unsigned int nbr, char *base);
+int		ft_putulnbr_base(unsigned long nbr, char *base);
+int		ft_putchar_fd(char c, int fd);
+int		ft_putnbr_fd(int n, int fd);
+int		ft_putstr_fd(char *s, int fd);
+size_t	ft_strlen(const char *s);
+
+/*get_next_line functions*/
+int		ft_linelen(char *s);
+char	*get_next_line(int fd);
+char	*get_actual_line(char *stash);
+char	*trunc_actual_line(char *stash);
+char	*read_to_stash(int fd, char	*stash);
 
 /*Bonus functions*/
 typedef struct s_list

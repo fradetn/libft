@@ -1,34 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 17:35:36 by nfradet           #+#    #+#             */
+/*   Created: 2023/10/17 18:45:53 by nfradet           #+#    #+#             */
 /*   Updated: 2023/11/04 22:54:46 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_base(unsigned int nbr, char *base)
 {
-	if (n == -2147483648)
+	unsigned int	nb;
+	int				res;
+
+	res = 0;
+	nb = nbr;
+	if (nb < 16)
 	{
-		write(fd, "-2147483648", 11);
-		return ;
+		write(1, &base[nb], 1);
+		return (1);
 	}
-	if (n < 0)
+	if (nb >= 16)
 	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(n * -1, fd);
+		res += ft_putnbr_base(nb / 16, base);
+		res += ft_putnbr_base(nb % 16, base);
 	}
-	else if (n <= 9)
-		ft_putchar_fd(n + '0', fd);
-	else
+	return (res);
+}
+
+int	ft_putulnbr_base(unsigned long nbr, char *base)
+{
+	int	res;
+
+	res = 0;
+	if (nbr < 16)
 	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
+		write(1, &base[nbr], 1);
+		return (1);
 	}
+	if (nbr >= 16)
+	{
+		res += ft_putulnbr_base(nbr / 16, base);
+		res += ft_putulnbr_base(nbr % 16, base);
+	}
+	return (res);
 }
