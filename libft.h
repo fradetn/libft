@@ -6,7 +6,7 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:14:09 by nfradet           #+#    #+#             */
-/*   Updated: 2023/11/04 22:56:13 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/11/06 00:38:11 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int			ft_atoi(const char *str);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
 char		*ft_strdup(const char *s);
+char		*ft_strdup_no_nl(char *str);
 char		*ft_strnstr(const char *big, const char *lit, size_t n);
 void		ft_bzero(void *s, size_t n);
 void		*ft_memcpy(void *dest, const void *src, size_t n);
@@ -64,10 +65,9 @@ int		ft_printf(const char *format, ...);
 int		ft_putunbr(unsigned int n);
 int		ft_putnbr_base(unsigned int nbr, char *base);
 int		ft_putulnbr_base(unsigned long nbr, char *base);
-int		ft_putchar_fd(char c, int fd);
-int		ft_putnbr_fd(int n, int fd);
-int		ft_putstr_fd(char *s, int fd);
-size_t	ft_strlen(const char *s);
+int		ft_putchar_printf(char c, int fd);
+int		ft_putnbr_printf(int n, int fd);
+int		ft_putstr_printf(char *s, int fd);
 
 /*get_next_line functions*/
 int		ft_linelen(char *s);

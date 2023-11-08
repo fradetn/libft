@@ -6,7 +6,7 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:45:42 by nfradet           #+#    #+#             */
-/*   Updated: 2023/11/04 22:54:45 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/11/05 05:55:50 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ static int	ft_print_ptr(unsigned long ptr)
 {
 	if (ptr)
 	{
-		return (ft_putstr_fd("0x", 1) + 
+		return (ft_putstr_printf("0x", 1) + 
 			ft_putulnbr_base(ptr, "0123456789abcdef"));
 	}
-	return (ft_putstr_fd("(nil)", 1));
+	return (ft_putstr_printf("(nil)", 1));
 }
 
 static int	ft_is_valid(char c)
@@ -58,13 +58,13 @@ static int	ft_nb_args(const char *str)
 static int	ft_call_arg(va_list args, const char conv)
 {
 	if (conv == 'd' || conv == 'i')
-		return (ft_putnbr_fd(va_arg(args, int), 1));
+		return (ft_putnbr_printf(va_arg(args, int), 1));
 	else if (conv == 'u')
 		return (ft_putunbr(va_arg(args, unsigned int)));
 	else if (conv == 'c')
-		return (ft_putchar_fd(va_arg(args, int), 1));
+		return (ft_putchar_printf(va_arg(args, int), 1));
 	else if (conv == 's')
-		return (ft_putstr_fd(va_arg(args, char *), 1));
+		return (ft_putstr_printf(va_arg(args, char *), 1));
 	else if (conv == 'p')
 		return (ft_print_ptr(va_arg(args, unsigned long)));
 	else if (conv == 'x')
@@ -87,7 +87,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
-			count += ft_putchar_fd('%', 1);
+			count += ft_putchar_printf('%', 1);
 			i++;
 		}
 		else if (format[i] == '%' && ft_is_valid(format[i + 1]))
@@ -96,7 +96,7 @@ int	ft_printf(const char *format, ...)
 			i++;
 		}
 		else if (format[i] != '%')
-			count += ft_putchar_fd(format[i], 1);
+			count += ft_putchar_printf(format[i], 1);
 		i++;
 	}
 	va_end(args);
