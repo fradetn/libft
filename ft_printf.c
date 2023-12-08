@@ -16,7 +16,7 @@ static int	ft_print_ptr(unsigned long ptr)
 {
 	if (ptr)
 	{
-		return (ft_putstr_printf("0x", 1) + 
+		return (ft_putstr_printf("0x", 1) + \
 			ft_putulnbr_base(ptr, "0123456789abcdef"));
 	}
 	return (ft_putstr_printf("(nil)", 1));
