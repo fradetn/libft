@@ -6,7 +6,7 @@
 /*   By: nfradet <nfradet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 23:37:29 by nfradet           #+#    #+#             */
-/*   Updated: 2023/10/07 03:56:20 by nfradet          ###   ########.fr       */
+/*   Updated: 2023/12/12 15:27:27 by nfradet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,56 +61,11 @@ int	ft_atoi(const char *str)
 	return (res * sign);
 }
 
-/*
+/* 
 #include <limits.h>
 #include <stdio.h>
 
-int single_test(char *str)
-{
-	if (atoi(str) != ft_atoi(str))
-	{
-		printf("test incorrect\nExpected : 
-		%d\nOutput : %d\n\n",atoi(str),ft_atoi(str));
-		return (1);
-	}
-	return (0);
-}
-
-int test_atoi(void)
-{
-	char buffer[200];
-	int res = 1;
-
-	single_test(" \t\v\n\r\f123");
-	single_test("0");
-	single_test("-1000043");
-	single_test(
-		"+0000000000000000000000000000000000000000000000000000123");
-	single_test("    123");
-	single_test("--123");
-	single_test("-+123");
-	single_test("+-123");
-	single_test("++123");
-	single_test("- 123");
-	single_test("+ 123");
-	single_test("+\n123");
-	single_test("1209");
-	single_test("12/3");
-	single_test("12;3");
-	sprintf(buffer, "%i", INT_MAX);
-	single_test(buffer);
-	sprintf(buffer, "%i", INT_MIN);
-	single_test(buffer);
-
-	for (int i = 0; i <= 0xFF; i++) {
-		sprintf(buffer, "%c %i", i, i + 1);
-	single_test(buffer);
-	}
-
-	return res;
-}
-
 int	main()
 {
-	test_atoi();
-}*/
+	ft_printf("%d\n", ft_atoi("oui"));
+} */
